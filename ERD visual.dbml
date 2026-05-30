@@ -1,0 +1,25 @@
+Table Entrees {
+  id int [pk, increment]
+  name varchar
+  price float
+}
+
+Table Veggies {
+  id int [pk, increment]
+  type varchar
+  price float
+}
+
+Table SideDishes {
+  id int [pk, increment]
+  title varchar
+  price float
+}
+
+Table Sales {
+  id int [pk, increment]
+  entreeId int [ref: > Entrees.id]
+  vegetableId int [ref: > Vegetables.id]
+  sideDishId int [ref: > SideDishes.id]
+  timestamp timestamp
+}
