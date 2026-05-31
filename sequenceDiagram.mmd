@@ -1,0 +1,45 @@
+sequenceDiagram
+    actor User
+    participant Main
+    participant FoodTruck
+    participant Components as Entrees / Veggies / Sides
+    participant Sales
+    participant TransientState
+    participant API
+
+    Note over Main, API: 1. Initial Render
+    Main->>FoodTruck: renderAllHTML() / FoodTruck()
+    
+    par Fetching Data
+        FoodTruck->>Sales: Sales()
+        Sales->>API: GET /purchases?_expand...
+        API-->>Sales: purchases data
+        Sales-->>FoodTruck: sales HTML string
+    and
+        FoodTruck->>Components: Entrees(), Veggies(), SideDishes()
+        Components->>API: GET /entrees, /vegetables, /sideDishes
+        API-->>Components: array data
+        Components-->>FoodTruck: radio buttons HTML strings
+    end
+    
+    FoodTruck-->>Main: Combined complete HTML
+    Main->>User: Update DOM (Show app to user)
+
+    Note over User, TransientState: 2. State Management
+    User->>Components: Clicks a radio button
+    Components->>TransientState: setEntree(), setVegetable(), or setSideDish()
+    TransientState-->>TransientState: Update transient state object
+
+    Note over User, Main: 3. Making a Purchase
+    User->>Main: Clicks "Purchase Combo"
+    Main->>TransientState: placeOrder()
+    
+    TransientState->>API: POST /purchases (Send transient state)
+    API-->>TransientState: 201 Created (Order saved)
+    
+    TransientState->>Main: dispatchEvent "orderPlaced"
+    
+    Note over Main, User: 4. Re-render
+    Main->>Main: Listens for "orderPlaced"
+    Main->>FoodTruck: renderAllHTML() / FoodTruck()
+    Note right of Main: The fetching process repeats, getting the new purchase!

@@ -166,6 +166,30 @@
       "vegetableId": 5,
       "sideDishId": 3,
       "id": 6
+    },
+    {
+      "entreeId": 3,
+      "vegetableId": 4,
+      "sideDishId": 4,
+      "id": 7
+    },
+    {
+      "entreeId": 2,
+      "vegetableId": 5,
+      "sideDishId": 3,
+      "id": 8
+    },
+    {
+      "entreeId": 8,
+      "vegetableId": 7,
+      "sideDishId": 2,
+      "id": 9
+    },
+    {
+      "entreeId": 1,
+      "vegetableId": 1,
+      "sideDishId": 1,
+      "id": 10
     }
   ]
 }
