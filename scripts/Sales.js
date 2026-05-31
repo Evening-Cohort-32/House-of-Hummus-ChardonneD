@@ -5,20 +5,20 @@ export const Sales = async () => {
 let salesDivs = sales.map(
     (purchaseOrder) => {
 // Calculate the total price
-        const PurchaseOrderPrice = purchaseOrder.entrees.price + purchaseOrder.vegetables.price + purchaseOrder.sideDish.price
+    const PurchaseOrderPrice = (purchaseOrder.entree.price) + (purchaseOrder.vegetable.price) + (purchaseOrder.sideDish.price)
 //Format the number as currency
-        const formattedPrice = PurchaseOrderPrice.toLocaleString(
-            "en-US", {
-            style: "currency",
-            currency: "USD"
-        })
+    const formattedPrice = PurchaseOrderPrice.toLocaleString(
+      "en-US", {
+         style: "currency",
+         currency: "USD"
+    })
 //Return the HTML string for the purchase order
-        return `
-        <li class="CustomerOrder">
-            Receipt #${purchaseOrder.id} = ${formattedPrice}
-        </li>`
-        }
-    )
+    return `
+      <li class="CustomerOrder">
+        Receipt #${purchaseOrder.id} = ${formattedPrice}
+      </li>`
+    }
+ )
 
     return salesDivs.join("")
 }

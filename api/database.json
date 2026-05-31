@@ -98,7 +98,7 @@
       "price": 2.55
     }
   ],
-  "sides": [
+  "sideDishes": [
     {
       "id": 1,
       "title": "Chicken Fried Steak Poppers",
@@ -132,10 +132,40 @@
   ],
   "purchases": [
     {
-      "entreeId": 3,
-      "vegetableId": 1,
-      "sideDishId": 1,
+      "entreeId": 2,
+      "vegetableId": 5,
+      "sideDishId": 3,
       "id": 1
+    },
+    {
+      "entreeId": 2,
+      "vegetableId": 5,
+      "sideDishId": 3,
+      "id": 2
+    },
+    {
+      "entreeId": 8,
+      "vegetableId": 3,
+      "sideDishId": 3,
+      "id": 3
+    },
+    {
+      "entreeId": 2,
+      "vegetableId": 5,
+      "sideDishId": 3,
+      "id": 4
+    },
+    {
+      "entreeId": 8,
+      "vegetableId": 7,
+      "sideDishId": 2,
+      "id": 5
+    },
+    {
+      "entreeId": 2,
+      "vegetableId": 5,
+      "sideDishId": 3,
+      "id": 6
     }
   ]
 }

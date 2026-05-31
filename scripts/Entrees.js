@@ -9,7 +9,7 @@ document.addEventListener("change", (event) => {
         setEntree(selectedEntreeId)
     }
 })
-
+//HTML generator for the entree radio buttons
 export const Entrees = async () => {
     //Fetch the entrees from the API
     const response = await fetch("http://localhost:8088/entrees")
@@ -17,10 +17,10 @@ export const Entrees = async () => {
 
 
     //map to generate the radio buttons
-const html = entrees.map(entree => {
-    return `
+    const html = entrees.map(entree => {
+        return `
         <div>
-            <input type="radio" name="entree" value="${entree.id}" />
+            <input type="radio" name="entree" value="${entree.id}"/>
             ${entree.name}
         </div>
     `
